@@ -14,10 +14,10 @@ https://martinfowler.com/articles/richardsonMaturityModel.html
 * https://dzone.com/articles/applying-hateoas-to-a-rest-api-with-spring-boot
 
 ###### IN-PROG
-* https://docs.spring.io/spring-hateoas/docs/current/reference/html/
+/
 
 ###### TODO
-/
+* https://docs.spring.io/spring-hateoas/docs/current/reference/html/
 
 ---
 
