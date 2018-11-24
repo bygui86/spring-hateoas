@@ -34,95 +34,95 @@ No specific pre-requisites
 #### Make
 * just compile
 
-      make clean compile
+		make clean compile
 
 * build and run unit tests
 
-      make clean build
+		make clean build
 
 * install
 
-      make install
+		make install
 
 * run
 
-      make run
+		make run
 
 * debug
 
-      make debug
+		make debug
 
 * run integration tests
 
-      make integration-test
+		make integration-test
 
 * run all tests
 
-      make test
+		make test
 
 * docker
-  * build image
-  
-        make docker-build
-  
-  * run container
-  
-        make docker-run
-  
-  * run container as daemon
-  
-        make docker-run-daemon
-  
-  * stop daemon container
-  
-        make docker-stop
+	* build image
+	
+			make docker-build
+	
+	* run container
+	
+			make docker-run
+	
+	* run container as daemon
+	
+			make docker-run-daemon
+	
+	* stop daemon container
+	
+			make docker-stop
 
 #### Maven & Docker
 * just compile
 
-      ./mvnw clean compile
+		./mvnw clean compile
 
 * build and run unit tests
 
-      ./mvnw -Dtest=*UnitTest clean package
+		./mvnw -Dtest=*UnitTest clean package
 
 * install
 
-      ./mvnw clean install
+		./mvnw clean install
 
 * run
 
-      ./mvnw spring-boot:run -DskipTests -Dspring-boot.run.jvmArguments='$(MEM_OPTS) $(JMX_OPTS) $(OTHER_OPTS)'
+		./mvnw spring-boot:run -DskipTests -Dspring-boot.run.jvmArguments='$(MEM_OPTS) $(JMX_OPTS) $(OTHER_OPTS)'
 
 * debug
 
-      ./mvnw spring-boot:run -DskipTests -Dspring-boot.run.jvmArguments='$(MEM_OPTS) $(JMX_OPTS) $(OTHER_OPTS) -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=$(IMAGE_DEBUG_PORT)'
+		./mvnw spring-boot:run -DskipTests -Dspring-boot.run.jvmArguments='$(MEM_OPTS) $(JMX_OPTS) $(OTHER_OPTS) -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=$(IMAGE_DEBUG_PORT)'
 
 * run integration tests
 
-      ./mvnw -Dtest=*IntegrationTest -DfailIfNoTests=false test
+		./mvnw -Dtest=*IntegrationTest -DfailIfNoTests=false test
 
 * run all tests
 
-      ./mvnw test
+		./mvnw test
 
 * docker
-  * build image
-        
-        ./mvnw clean package
-        docker build -f Dockerfile_local -t $(IMAGE_NAME):$(IMAGE_TAG) .
-  
-  * run container
-  
-        docker run --rm -it --name $(NAME) $(DOCKER_IMAGE_PORTS) --net bridge --add-host=$(DOCKER_HOST):$(DOCKER_IP) $(IMAGE_NAME):$(IMAGE_TAG)
-  
-  * run container as daemon
-  
-        docker run --rm -d --name $(NAME) $(DOCKER_IMAGE_PORTS) --net bridge --add-host=$(DOCKER_HOST):$(DOCKER_IP) $(IMAGE_NAME):$(IMAGE_TAG)
-  
-  * stop daemon container
-  
-        docker container stop -f $(NAME)
+	* build image
+			
+			./mvnw clean package
+			docker build -f Dockerfile_local -t $(IMAGE_NAME):$(IMAGE_TAG) .
+	
+	* run container
+	
+			docker run --rm -it --name $(NAME) $(DOCKER_IMAGE_PORTS) --net bridge --add-host=$(DOCKER_HOST):$(DOCKER_IP) $(IMAGE_NAME):$(IMAGE_TAG)
+	
+	* run container as daemon
+	
+			docker run --rm -d --name $(NAME) $(DOCKER_IMAGE_PORTS) --net bridge --add-host=$(DOCKER_HOST):$(DOCKER_IP) $(IMAGE_NAME):$(IMAGE_TAG)
+	
+	* stop daemon container
+	
+			docker container stop -f $(NAME)
 
 ---
 
