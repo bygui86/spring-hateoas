@@ -46,13 +46,13 @@ compile :		## Compile the application
 	$(BUILD_TOOL) compile
 
 build :		## Build the application package including unit tests only
-	$(BUILD_TOOL) -Dtest=*UnitTest -DfailIfNoTests=false package
+	$(BUILD_TOOL) -Dtest=*UnitTest package
 
 verify :		## Verify that the code coverage metrics are being met
-	$(BUILD_TOOL) -DfailIfNoTests=false verify
+	$(BUILD_TOOL) verify
 
 install :		## Install the application package including all tests and push to artifact repo
-	$(BUILD_TOOL) -DfailIfNoTests=false install
+	$(BUILD_TOOL) install
 
 clean-compile :		## Clean and Compile the application including unit tests only
 	$(BUILD_TOOL) clean compile
@@ -67,7 +67,7 @@ clean-install :		## Clean and Install the application package including all test
 # TESTING
 
 test :		## Run all tests
-	$(BUILD_TOOL) -DfailIfNoTests=false test
+	$(BUILD_TOOL) test
 
 unit-test :		## Run Unit tests only
 	$(BUILD_TOOL) -Dtest=*UnitTest -DfailIfNoTests=false test
@@ -109,7 +109,7 @@ docker-run :		## Run the containerised application through docker
 	@echo Docker host [$(DOCKER_HOST)] ip [$(DOCKER_IP)]
 	docker run --rm -it --name $(NAME) $(DOCKER_IMAGE_PORTS) --net bridge --add-host=$(DOCKER_HOST):$(DOCKER_IP) $(IMAGE_NAME):$(IMAGE_TAG)
 
-docker-run-deamon :		## Run the containerised application as deamon through docker
+docker-run-daemon :		## Run the containerised application as daemon through docker
 	@echo Docker host [$(DOCKER_HOST)] ip [$(DOCKER_IP)]
 	docker run --rm -d --name $(NAME) $(DOCKER_IMAGE_PORTS) --net bridge --add-host=$(DOCKER_HOST):$(DOCKER_IP) $(IMAGE_NAME):$(IMAGE_TAG)
 
